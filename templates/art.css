@@ -31,6 +31,8 @@ a {
     color: #58B2DC;
 }
 
+/* 響應式斷點 744px */
+
 /* 導航欄 */
 .header {
     display: flex;
@@ -44,9 +46,12 @@ a {
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
 
-    @media (max-width: 767px) {
-        flex-direction: column;
-        padding: 0
+    
+}
+
+@media (max-width: 950px) {
+    .header ul{
+        display: none;
     }
 }
 
@@ -122,49 +127,6 @@ a {
     white-space: nowrap;
 }
 
-@media (max-width: 767px) {
-    .header {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .logo {
-        padding: 10px;
-        width: 100%;
-        border-bottom: 1px solid #fff;
-    }
-
-    .logo h1 a {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .header > ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0;
-        padding: 0;
-    }
-
-    .header > ul > li {
-        width: 50%;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        text-align: center;
-        border-bottom: 2px solid #fff;
-        
-    }
-
-    .header > ul > li :not(:last-child) {
-        margin-right: 0px;
-    }
-
-    ul :nth-child(even) {
-        border-left: 2px solid #fff;
-    }
-
-}
 
 
 /*
