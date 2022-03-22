@@ -12,11 +12,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- end google fonts -->
+    <!-- material design icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- custom style -->
     <link rel="stylesheet" href="../templates/art.css">
     
     <title>臺灣美術圖書館服務平台</title>
-</head>
+</head> 
 <body>
     <!-- 導航欄開始 -->
     <header>
@@ -45,14 +47,51 @@
     </header>
     <!-- 導航欄結束 -->
 
-    <!-- bannner -->
+    <!-- bannner star -->
     <div class="banner">
         <h2>臺灣美術圖書館服務平台</h2>
     </div>
+    <!-- banner end-->
 
-    <!-- end banner -->
+    <!-- 查詢區開始 -->
+    <div class="searchArea">
+        <div class="search">
+            <div class="title">
+                <span class="material-icons">
+                    search
+                </span>
+                查詢區</div>
+            <ul>
+                <li>
+                    <label>
+                        <select class="gobleStyle smallCol">
+                          <option>書名</option>
+                          <option>作者</option>
+                          <option>索書號</option>
+                          <option>出版地</option>
+                          <option>出版者</option>
+                        </select>
+                    </label>
+                    <label for="valueOne"></label>
+                    <input type="text" id="valueOne" name="valueOne" class="gobleStyle largeCol">
+                    <div class="btnBox"><button></button><button></button><button></button></div>
+                </li>
+                <li>
+                    <input type="text"><input type="text">
+                    <div class="btnBox"><button></button><button></button><button></button></div>
+                </li>
+                <li>
+                    <input type="text"><input type="text">
+                    <div class="btnBox"><button></button><button></button><button></button></div>
+                </li>
+            </ul>
+            <button>查詢</button>
+        </div>
+    </div>
+    <!-- 查詢區結束 -->
 
-        
-  
+
+    <!-- material design icon -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 </body>
 </html>
