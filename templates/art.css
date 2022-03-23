@@ -484,3 +484,103 @@ label {
       letter-spacing: .1em;
     }
   }
+
+  /* 輪播 */
+  /*common-css*/
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/*slider-bg-setup*/
+.slider-items {
+  position: relative;
+/*   slider-height */
+  height: 500px;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+/* you can use background imgae in internal css */
+.bg-img-1 {
+  background-image: url(https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350);
+} 
+.bg-img-2 {
+  background-image: url(https://images.freeimages.com/images/small-previews/b8d/irish-landscape-1393571.jpg);
+}
+.bg-img-3 {
+  background-image: url(https://images.pexels.com/photos/348097/pexels-photo-348097.jpeg?auto=compress&cs=tinysrgb&h=350);
+}
+
+/*slider-style*/
+.active-slider {
+  position: relative;
+}
+.sigle-item {
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  text-transform: uppercase;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/*over-lay-for-slider*/
+.slider-items:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+/* overlay-color */
+  background: -webkit-linear-gradient(#777, #000);
+  background: -o-linear-gradient(#777, #000);
+  background: linear-gradient(#777, #000);
+  opacity: .65
+}
+/*slider-reade-more-button*/
+a.home-btn {
+border: 2px solid #fff;
+display: inline-block;
+padding: 10px 25px;
+margin-top: 30px;
+color: #fff;
+text-decoration: none;
+transition: linear .3s;
+}
+a.home-btn:hover, .owl-nav div:hover {
+  background-color: #000;
+}
+/*owl-nav*/
+.owl-nav div {
+/*     border: 2px solid #fff; */
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  margin-top: -20px;
+  left: 10px;
+  line-height: 40px;
+  text-align: center;
+  -webkit-transition: linear .3s;
+  -o-transition: linear .3s;
+  transition: linear .3s;
+}
+.owl-nav div.owl-next {
+  left: auto;
+  right: 10px;
+}
+/* optional */
+.owl-nav h1 {
+  font-weight: 900;
+}

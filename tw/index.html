@@ -14,6 +14,8 @@
     <!-- end google fonts -->
     <!-- material design icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- 輪播 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css">
     <!-- custom style -->
     <link rel="stylesheet" href="../templates/art.css">
     
@@ -87,6 +89,33 @@
     </div>
     <!-- banner end-->
 
+    <!-- 輪播 開始 -->
+    <section class="hearo-area">
+		<!-- slider-area -->
+		<div class="slider-wrapper">
+			<div class="active-slider owl-carousel">
+				<div class="slider-items bg-img-1">
+					<div class="sigle-item">
+						<h1>slider 1</h1>
+					</div>
+				</div>
+				<div class="slider-items bg-img-2">
+					<div class="sigle-item">
+						<h1>slider 2</h1>
+					</div>
+				</div>
+				<div class="slider-items bg-img-3">
+					<div class="sigle-item">
+						<h1>slider 3</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- slider-area-ends -->
+	</section>
+
+    <!-- 輪播 結束 -->
+
     <!-- 查詢區開始 -->
     <div class="searchArea">
         <div class="search">
@@ -122,8 +151,6 @@
             <button>查詢</button>
             
         </div>
-
-        
     </div>
     <!-- 查詢區結束 -->
     <!-- footer star -->
@@ -144,43 +171,32 @@
     </footer>
     <!-- footer end -->
 
+
+
+    <!-- jQ測試區 -->
+    <button onclick="myFunc()">Click Me</button>
+    <p>First Paragraph</p>
+    <p>Second Paragraph</p>
+    <p>Yet one more Paragraph</p>
+
+   
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- material design icon -->
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <!-- jQury -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script> -->
     <!-- customer -->
     <script type="text/javascript" src="../templates/art.js"></script>
+    <script src="../templates/code.js"></script>
 
-    <script>
-        $(document).ready(function() {
-
-            "use strict";
-
-            $('.menuArea > ul > li:has( > ul)').addClass('menu-dropdown-icon');
-            // Checks if li has sub (ul) and adds class for toggle icon - just an UI
-
-            $('.menuArea > ul > li > ul:not(:has(ul))').addClass('normal-sub');
-            // Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
-
-
-
-
-
-            $(".menuArea > ul > li").click(function() {
-            if ($(window).width() <= 950) {
-                $(this).children("ul").fadeToggle(250);
-            }
-            });
-            //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
-
-            $(".menu-mobile").click(function(e) {
-            $(".menuArea > ul").toggleClass('show-on-mobile');
-            e.preventDefault();
-            });
-            //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
-
-        });
-    </script>
+ 
+    
 
 </body>
 </html>
