@@ -466,3 +466,21 @@ label {
       color: rgb(73, 73, 73);
       letter-spacing: .1em;
   }
+
+  /* 手機板 */
+  @media screen and (max-width: 413px) {
+    footer {
+      padding: 32px 32px;
+    }
+    .footerLogo img{
+      width: 50px;
+    }
+
+    .footerText p , .copyright > p  {
+      font-style: normal;
+      font-weight: 350;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: .1em;
+    }
+  }
