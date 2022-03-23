@@ -23,6 +23,7 @@
     <!-- 導航欄開始 -->
     <header>
         <div class="header">
+            
             <div class="logo">
                 <h1>
                     <a href="index.html">臺灣美術圖書館服務平台</a>
@@ -30,9 +31,9 @@
             </div>
             <ul>
                 <li><a href="" class="active">首頁</a></li>
-                <li class="menu menu-hover">
+                <li class="menu-lg menu-hover">
                     <a href="">關於我們</a>
-                    <ul class="submenu">
+                    <ul class="submenu-lg">
                         <li><a href="#">館長的話</a></li>
                         <li><a href="#">歷史沿革</a></li>
                         <li><a href="#">組織架構</a></li>
@@ -43,9 +44,42 @@
                 <li><a href="">服務項目</a></li>
                 <li><a href="">聯絡我們</a></li>
             </ul>
+
+            <!-- 手機板選單 開始-->
+            <nav class="menuArea">
+                <label for="switch">
+                <span class="material-icons">
+                    reorder
+                </span>
+                </label><!--漢堡按鈕圖示-->
+                <input type="checkbox" id="switch"><!--選單開關-->
+                <ul class="menu"><!--選單內容-->
+                    <li><a href="##">首頁</a></li>
+                    <li class="menu-dropdown-icon">
+                    <a href="##">
+                        關於我們
+                        <span class="material-icons expand">
+                        expand_more
+                        </span>
+                    </a>
+                    <ul class="submenu" style="display: none;">
+                        <li><a href="#">館長的話</a></li>
+                        <li><a href="#">歷史沿革</a></li>
+                        <li><a href="#">組織架構</a></li>
+                    </ul>  
+                    </li>
+                    <li><a href="##">最新消息</a></li>
+                    <li><a href="##">常見問題</a></li>
+                    <li><a href="##">服務項目</a></li>
+                    <li><a href="##">聯絡我們</a></li>
+                </ul>
+            </nav> 
+            <!-- 手機板選單 結束 -->
         </div>
     </header>
     <!-- 導航欄結束 -->
+
+    
 
     <!-- bannner star -->
     <div class="banner">
@@ -112,5 +146,42 @@
 
     <!-- material design icon -->
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <!-- jQury -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- customer -->
+    <script type="text/javascript" src="../templates/art.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            "use strict";
+
+            $('.menuArea > ul > li:has( > ul)').addClass('menu-dropdown-icon');
+            // Checks if li has sub (ul) and adds class for toggle icon - just an UI
+
+            $('.menuArea > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+            // Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
+
+
+
+
+
+            $(".menuArea > ul > li").click(function() {
+            if ($(window).width() <= 950) {
+                $(this).children("ul").fadeToggle(250);
+            }
+            });
+            //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
+
+            $(".menu-mobile").click(function(e) {
+            $(".menuArea > ul").toggleClass('show-on-mobile');
+            e.preventDefault();
+            });
+            //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
+
+        });
+    </script>
+
 </body>
 </html>
+

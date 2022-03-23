@@ -132,11 +132,11 @@ a {
 /*
   Menu 下拉選單
 */
-.menu  {
+.menu-lg  {
     position: relative;
 }
 
-.menu .submenu {
+.menu-lg .submenu-lg {
     background: #fff;
     border-radius: 0px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -154,16 +154,16 @@ a {
     z-index: 100;
   }
   
-  .menu:hover .submenu,
-  .menu-hover:hover .submenu {
+  .menu-lg:hover .submenu-lg,
+  .menu-hover:hover .submenu-lg {
     opacity: 1;
     top: 44px;
     visibility: visible;
     color: #fff;
   }
   
-  .menu .submenu:before,
-  .menu .submenu::before {
+  .menu-lg .submenu-lg:before,
+  .menu-lg .submenu-lg::before {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-bottom: 6px solid white;
@@ -175,7 +175,7 @@ a {
     width: 0;
   }
   
-  .menu .submenu a {
+  .menu-lg .submenu-lg a {
     color: #777;
     display: inline-block;
     line-height: 1.2em;
@@ -183,9 +183,114 @@ a {
     padding: 10px 20px;
   }
   
-  .menu .submenu a:hover {
+  .menu-lg .submenu-lg a:hover {
      color: #fff; 
   }
+
+  /* 手機板選單 */
+  /* 隱藏 checkbox */
+input {
+  display: none;
+}
+
+/* 隱藏漢堡按鈕 */
+label {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
+.menuArea {
+  display: none;
+}
+
+.menu-dropdown-icon:before {
+    display: none;
+    cursor: pointer;
+    float: right;
+    padding: 1.5em 2em;
+    background: #fff;
+    color: #333;
+}
+/* mediaquery */
+@media screen and (max-width: 950px) {
+  .menuArea {
+    display: block;
+  }
+
+  nav::after {
+    content: "";
+    display: block;
+    clear: both;
+  } 
+
+  label {
+    display: block;
+    float: right;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  label span {
+    width: 50px;   
+    vertical-align: middle;
+  }
+
+
+/* menu*/
+  .menu {
+    display: block;
+/*     clear: both; */
+    background: #fff;
+    position: absolute;
+/*      權重 */
+    z-index: 100;
+/*     因為 header 80 px + border 1 px，若漢堡選單要從header 下方展開就要這樣設 */
+    top: 60px; 
+/*     在絕對定位之下要做出滿版效果，左右都要0 */
+    left: 0; 
+    right: 0;
+    text-align: left;
+
+    /* 下拉選單效果 */
+    max-height: 0;
+    overflow: hidden;
+    transition: .5s; /* 動畫秒數 */
+  }
+  
+  .menu li {
+    border-bottom: 1px solid #BDC0BA;
+  }
+  
+  .menu a {
+    width: 100%;
+    display: block;
+    padding: 10px 32px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #000;
+  }
+
+  input:checked ~ .menu {
+    min-height: 1000px;
+  }
+  
+  .expand {
+    float: right;
+    padding-top: 10px;
+  } 
+  
+  .submenu li {
+    padding-left: 30px;
+  }
+  
+  .menu-dropdown-icon:before {
+      display: block;
+  }
+  
+}
 
   /* banner */
   .banner {
