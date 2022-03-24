@@ -421,7 +421,7 @@ label {
   .searchArea {
       position: relative;
       width: 100%;
-      min-height: 800px;
+      min-height: 600px;
   }
 
   .search {
@@ -554,12 +554,66 @@ label {
     text-align: center;
     margin-top: 64px;
     margin-bottom: 64px;
-
   }
 
   .search-button:hover {
     background-color: #3A8FB7;
     color: #fff;
+  }
+  
+  /* 查詢區手機板 */
+  @media screen and (max-width: 760px) {
+
+    .searchArea {
+      min-height: 500px;
+    }
+
+    .search {
+      width: 85%;
+    }
+
+    .search-icon {
+      color: #58B2DC;
+      vertical-align: middle;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    .title {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 32px;
+      margin: 48px 0 32px 0;
+      text-align: center;
+    }
+
+    .search > ul {
+      padding-right: 24px;
+      padding-left: 24px;
+      width: 100%;
+      text-align: center;
+    } 
+
+    .font-style {
+      font-size: 14px;
+    }
+
+    .btnBox button, .btn-add {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    .btnBox button:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    .search-button {
+      padding: 8px 80px;
+      font-size: 14px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
   }
 
   /* footer */
