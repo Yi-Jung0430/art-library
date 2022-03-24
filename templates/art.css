@@ -681,6 +681,7 @@ label {
 
   /* search 頁面 */
 
+  /* banner 區塊 */
 .search-banner {
   background-image: url(../templates/images/banner.jpg);
   background-position: center;
@@ -697,3 +698,100 @@ label {
   }
 }
  
+/* 查詢區塊 */
+.search-page {
+  width: 80%;
+  /* text-align: center; */
+  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+  margin: 40px auto 40px auto;
+
+}
+
+/* Table Base */
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table { 
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  font-weight: normal;
+  font-size: 14px;
+  padding: 8px 16px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+.table thead th {
+  background: #cacaca;
+  vertical-align: bottom;
+  font-size: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}   
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+  background-color: #ebebeb;
+}    
+.table .t-small {
+  width: 5%;
+}
+.table .t-medium {
+  width: 15%;
+}
+.table .t-status {
+  font-weight: bold;
+}
+.table .t-active {
+  color: #46a546;
+}
+.table .t-inactive {
+  color: #e00300;
+}
+.table .t-draft {
+  color: #f89406;
+}
+.table .t-scheduled {
+  color: #049cdb;
+}
+
+/* Small Sizes */
+@media (max-width: 480px) { 
+  .table-action thead {
+    display: none;
+  }
+  .table-action tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  .table-action td {
+    border: 0;
+  }
+  .table-action td:not(:first-child) {
+    display: block;
+  }
+}
+
+.book-1, .book-2, .book-3, .book-4, .book-5 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 160px;
+}
+
+.book-1 {
+  background-image: url(../templates/images/book-1.jpg);
+}
+
+.table > tbody > tr :first-child {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
