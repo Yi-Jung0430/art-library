@@ -47,14 +47,32 @@ a {
     width: 100%; /* Full width */
 }
 
+.header-sm {
+  display: none;
+}
+
+/* 切換導航欄 */
 @media (max-width: 950px) {
-    .header ul{
+    .header {
         display: none;
     }
+    .header-sm {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: 0 80px;
+      position: fixed; 
+      z-index: 5000;
+      background-color: #fff;
+      top: 0; /* Position the navbar at the top of the page */
+      width: 100%; /* Full width */
+    }
+
 }
 
 @media screen and (max-width: 760px) {
-  .header {
+  .header-sm {
     padding: 0 32px;
   }
 }
@@ -137,9 +155,27 @@ a {
   }
 }
 
+/* 手機板logo */
+.logo-sm > h1 > a {
+  background-image: url(../templates/images/logo.svg);
+  width: 60px;
+  height: 90px;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@media screen and (max-width: 760px) {
+.logo-sm > h1 > a {
+  width: 40px;
+  height: 60px;
+}
+}
 
 /*
-  Menu 下拉選單
+  Menu-lg 下拉選單
 */
 .menu-lg  {
     position: relative;
@@ -196,8 +232,22 @@ a {
      color: #fff; 
   }
 
-  /* 手機板選單 */
-  /* 隱藏 checkbox */
+  /* 手機導航欄 */
+  /* reset */
+body, h1, ul { margin: 0; }
+
+* { box-sizing: border-box; }
+
+ul {
+  list-style: none; 
+  padding-left: 0; 
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 隱藏 checkbox */
 input {
   display: none;
 }
@@ -211,40 +261,33 @@ label {
   display: none;
 }
 
-.menuArea {
-  display: none;
-}
-
-.menu-dropdown-icon:before {
-    display: none;
-    cursor: pointer;
-    float: right;
-    padding: 1.5em 2em;
-    background: #fff;
-    color: #333;
-}
 /* mediaquery */
 @media screen and (max-width: 950px) {
-  .menuArea {
-    display: block;
+  
+  nav {
+    background: #fff;
+    
   }
 
   nav::after {
     content: "";
     display: block;
     clear: both;
-  } 
+  }
 
   label {
     display: block;
-    float: right;
+    /* float: right; */
+    /* padding-right: 50px; */
     line-height: 50px;
     cursor: pointer;
   }
 
-  label span {
+  .bar {
     width: 50px;   
     vertical-align: middle;
+    text-align: center;
+    color: #0089A7;
   }
 
 
@@ -252,21 +295,22 @@ label {
   .menu {
     display: block;
 /*     clear: both; */
-    background: #fff;
+    background: rgb(235, 235, 235);
     position: absolute;
 /*      權重 */
     z-index: 100;
 /*     因為 header 80 px + border 1 px，若漢堡選單要從header 下方展開就要這樣設 */
-    top: 60px; 
+    top: 90px; 
 /*     在絕對定位之下要做出滿版效果，左右都要0 */
     left: 0; 
     right: 0;
     text-align: left;
+  }
 
-    /* 下拉選單效果 */
-    max-height: 0;
-    overflow: hidden;
-    transition: .5s; /* 動畫秒數 */
+  @media screen and (max-width: 760px) {
+    .menu {
+      top: 60px;
+    }
   }
   
   .menu li {
@@ -281,10 +325,27 @@ label {
     font-size: 16px;
     color: #000;
   }
+  /* 下拉選單效果 */
+  .menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: .5s; /* 動畫秒數 */
+  }
 
   input:checked ~ .menu {
     min-height: 1000px;
   }
+  
+   /* .menu-dropdown-icon:before {
+     content: "\f489";
+     font-family: "Ionicons";
+     display: none;
+     cursor: pointer;
+     float: right;
+     padding: 1.5em 2em;
+     background: #fff;
+     color: #000;
+   } */
   
   .expand {
     float: right;
@@ -296,10 +357,16 @@ label {
   }
   
   .menu-dropdown-icon:before {
-      display: block;
+    display: block;
   }
   
 }
+  
+
+
+
+
+ 
 
   /* banner */
   .banner {
@@ -314,7 +381,7 @@ label {
   @media screen and (max-width: 760px) {
     .banner {
       margin-top: 60px;
-  }
+    }
   }
 
   .banner > h2 {
@@ -367,7 +434,7 @@ label {
     
   }
 
-  .material-icons {
+  .search {
       color: #58B2DC;
       vertical-align: middle;
       height: 30px;
@@ -485,102 +552,4 @@ label {
     }
   }
 
-  /* 輪播 */
-  /*common-css*/
-* {
-  padding: 0;
-  margin: 0;
-}
-h1 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/*slider-bg-setup*/
-.slider-items {
-  position: relative;
-/*   slider-height */
-  height: 500px;
-  -webkit-background-size: 100% 100%;
-  background-size: 100% 100%;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-}
-/* you can use background imgae in internal css */
-.bg-img-1 {
-  background-image: url(https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350);
-} 
-.bg-img-2 {
-  background-image: url(https://images.freeimages.com/images/small-previews/b8d/irish-landscape-1393571.jpg);
-}
-.bg-img-3 {
-  background-image: url(https://images.pexels.com/photos/348097/pexels-photo-348097.jpeg?auto=compress&cs=tinysrgb&h=350);
-}
-
-/*slider-style*/
-.active-slider {
-  position: relative;
-}
-.sigle-item {
-  position: absolute;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-  top: 50%;
-  text-transform: uppercase;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-/*over-lay-for-slider*/
-.slider-items:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-/* overlay-color */
-  background: -webkit-linear-gradient(#777, #000);
-  background: -o-linear-gradient(#777, #000);
-  background: linear-gradient(#777, #000);
-  opacity: .65
-}
-/*slider-reade-more-button*/
-a.home-btn {
-border: 2px solid #fff;
-display: inline-block;
-padding: 10px 25px;
-margin-top: 30px;
-color: #fff;
-text-decoration: none;
-transition: linear .3s;
-}
-a.home-btn:hover, .owl-nav div:hover {
-  background-color: #000;
-}
-/*owl-nav*/
-.owl-nav div {
-/*     border: 2px solid #fff; */
-  color: #fff;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  z-index: 9;
-  top: 50%;
-  margin-top: -20px;
-  left: 10px;
-  line-height: 40px;
-  text-align: center;
-  -webkit-transition: linear .3s;
-  -o-transition: linear .3s;
-  transition: linear .3s;
-}
-.owl-nav div.owl-next {
-  left: auto;
-  right: 10px;
-}
-/* optional */
-.owl-nav h1 {
-  font-weight: 900;
-}
+ 
