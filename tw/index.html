@@ -124,7 +124,7 @@
     <!-- 查詢form開始 -->
     <form action="" method="post">
         <div class="searchArea">
-            <div class="search">
+            <div class="search" id="search">
                 <div class="title">
                     <span class="material-icons search-icon">
                         search
@@ -151,14 +151,15 @@
                             close
                         </span>
                     </li>
+                    
+                </ul>
+                <!-- 查詢區塊二 -->
+                <ul>
                     <div class="btnBox">
                         <button>AND</button>
                         <button>OR</button>
                         <button>NOT</button>
                     </div>
-                </ul>
-                <!-- 查詢區塊二 -->
-                <ul>
                     <li class="gobleStyle smallCol">
                         <label for="valueTwo ">
                         </label>
@@ -177,14 +178,14 @@
                             close
                         </span>
                     </li>
+                </ul>
+                <!-- 查詢區塊三 -->
+                <ul>
                     <div class="btnBox">
                         <button>AND</button>
                         <button>OR</button>
                         <button>NOT</button>
                     </div>
-                </ul>
-                <!-- 查詢區塊三 -->
-                <ul>
                     <li class="gobleStyle smallCol">
                         <label for="valueTwo">
                         </label>
@@ -203,12 +204,12 @@
                             close
                         </span>
                     </li>
-                        <button class="btn-add">
-                            <span class="material-icons">
-                                add
-                            </span>
-                        </button>
                 </ul>
+                <button class="btn-add" id="addList">
+                    <span class="material-icons">
+                        add
+                    </span>
+                </button>
                 <button class="search-button">
                     <a href="search.html" type="submit">查詢</a>
                 </button>
@@ -255,36 +256,31 @@
      /*global $ */
     $(document).ready(function() {
 
-    "use strict";
+        "use strict";
+        // 手機板導航欄
+        $('.menuArea > ul > li:has( > ul)').addClass('menu-dropdown-icon');
+        //Checks if li has sub (ul) and adds class for toggle icon - just an UI
 
-    $('.menuArea > ul > li:has( > ul)').addClass('menu-dropdown-icon');
-    //Checks if li has sub (ul) and adds class for toggle icon - just an UI
+        $('.menuArea > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+        //Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
 
-    $('.menuArea > ul > li > ul:not(:has(ul))').addClass('normal-sub');
-    //Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
-
-
-
-
-
-    $(".menuArea > ul > li").click(function() {
-    if ($(window).width() <= 943) {
-        $(this).children("ul").fadeToggle(250);
-    }
-    });
-    //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
-   
-    $(".menu-mobile").click(function(e) {
-    $(".menuArea > ul").toggleClass('show-on-mobile');
-    e.preventDefault();
-    }); 
+        $(".menuArea > ul > li").click(function() {
+            if ($(window).width() <= 943) {
+                $(this).children("ul").fadeToggle(250);
+            }
+        });
+        //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
+    
+        $(".menu-mobile").click(function(e) {
+            $(".menuArea > ul").toggleClass('show-on-mobile');
+            e.preventDefault();
+        }); 
     //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
 
     });
 
 
-    // 輪播測試
-     
+    // 輪播
     var owl = $('.owl-carousel');
         owl.owlCarousel({
             items:1,
@@ -294,6 +290,15 @@
             autoplayTimeout:4000,
             autoplayHoverPause:true
         });
+
+
+    // 點擊新增列表
+    $("#addList").click(function(){
+        $("#search").append(
+            ""
+        )
+    })
+
         
 
  </script>
