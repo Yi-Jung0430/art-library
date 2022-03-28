@@ -244,9 +244,9 @@ a {
 }
 
 /* 隱藏漢堡按鈕 */
-label {
+/* label {
   display: none;
-}
+} */
 
 .menu {
   display: none;
@@ -500,12 +500,11 @@ label {
     padding-right: 16px;
   }
 
-  /* 按鈕區塊 */
-  .btnBox button, .btn-add {
+  /* 按鈕區塊 radio */
+  .btn-add, .btnBox, .btnBox label{
     padding: 16px 24px;
     margin-top: 24px;
     margin-bottom: 24px;
-    border: 1px solid #3A8FB7;
     color: #3A8FB7;
     background-color: #fff;
     font-style: normal;
@@ -514,23 +513,42 @@ label {
     cursor: pointer;
   }
 
-  .btnBox button:hover, .btn-add:hover {
+  .btn-add:hover, .btnBox label:hover {
     background-color: #3A8FB7;
     color: #fff;
   }
 
-  .btnBox button:not(:last-child) {
+  .btnBox label:not(:last-child){
     margin-right: 8px;
-  }
-
-  .btnBox button:first-child {
-    background-color: #3A8FB7;
-    color: #fff;
   }
 
   .btn-add {
     margin-bottom: 0;
+    border: 1px solid #bbeaff;
   }
+
+  .b{
+    position: relative;
+  }
+
+  .b input{
+    display: none
+  }
+
+  .b span{
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid #bbeaff;
+  }
+
+ 
+  .b input:checked + span{
+    border: 1.5px solid #3A8FB7;
+  }
+
 
   /* 查詢按鈕 */
   .search-box {
@@ -540,7 +558,7 @@ label {
 
   .search-button {
     padding: 16px 104px;
-    border: 1px solid #3A8FB7;
+    border: 1px solid #bbeaff;
     color: #3A8FB7;
     background-color: #fff;
     font-style: normal;
