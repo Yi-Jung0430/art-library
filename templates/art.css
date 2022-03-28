@@ -1,3 +1,6 @@
+/* import google font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Roboto&family=Work+Sans:wght@200;300;400;500;600;800&display=swap');
+
 /* 全站設定 */
 *,
 *::before,
@@ -31,6 +34,10 @@ a {
     color: #58B2DC;
 }
 
+.relative {
+  position: relative;
+}
+
 /* 響應式斷點 744px */
 
 /* 導航欄 */
@@ -47,14 +54,32 @@ a {
     width: 100%; /* Full width */
 }
 
+.header-sm {
+  display: none;
+}
+
+/* 切換導航欄 */
 @media (max-width: 950px) {
-    .header ul{
+    .header {
         display: none;
     }
+    .header-sm {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: 0 80px;
+      position: fixed; 
+      z-index: 5000;
+      background-color: #fff;
+      top: 0; /* Position the navbar at the top of the page */
+      width: 100%; /* Full width */
+    }
+
 }
 
 @media screen and (max-width: 760px) {
-  .header {
+  .header-sm {
     padding: 0 32px;
   }
 }
@@ -137,9 +162,27 @@ a {
   }
 }
 
+/* 手機板logo */
+.logo-sm > h1 > a {
+  background-image: url(../templates/images/logo.svg);
+  width: 60px;
+  height: 90px;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@media screen and (max-width: 760px) {
+.logo-sm > h1 > a {
+  width: 40px;
+  height: 60px;
+}
+}
 
 /*
-  Menu 下拉選單
+  Menu-lg 下拉選單
 */
 .menu-lg  {
     position: relative;
@@ -196,55 +239,49 @@ a {
      color: #fff; 
   }
 
-  /* 手機板選單 */
-  /* 隱藏 checkbox */
-input {
+  /* 手機導航欄 */
+
+/* 隱藏 checkbox */
+.menuArea > input {
   display: none;
 }
 
 /* 隱藏漢堡按鈕 */
-label {
+/* label {
   display: none;
-}
+} */
 
 .menu {
   display: none;
 }
 
-.menuArea {
-  display: none;
-}
-
-.menu-dropdown-icon:before {
-    display: none;
-    cursor: pointer;
-    float: right;
-    padding: 1.5em 2em;
-    background: #fff;
-    color: #333;
-}
 /* mediaquery */
 @media screen and (max-width: 950px) {
-  .menuArea {
-    display: block;
+  
+  nav {
+    background: #fff;
+    
   }
 
   nav::after {
     content: "";
     display: block;
     clear: both;
-  } 
+  }
 
   label {
     display: block;
-    float: right;
+    /* float: right; */
+    /* padding-right: 50px; */
     line-height: 50px;
     cursor: pointer;
   }
 
-  label span {
+  .bar {
     width: 50px;   
     vertical-align: middle;
+    text-align: center;
+    color: #0089A7;
   }
 
 
@@ -252,21 +289,22 @@ label {
   .menu {
     display: block;
 /*     clear: both; */
-    background: #fff;
+    background: rgb(235, 235, 235);
     position: absolute;
 /*      權重 */
     z-index: 100;
 /*     因為 header 80 px + border 1 px，若漢堡選單要從header 下方展開就要這樣設 */
-    top: 60px; 
+    top: 90px; 
 /*     在絕對定位之下要做出滿版效果，左右都要0 */
     left: 0; 
     right: 0;
     text-align: left;
+  }
 
-    /* 下拉選單效果 */
-    max-height: 0;
-    overflow: hidden;
-    transition: .5s; /* 動畫秒數 */
+  @media screen and (max-width: 760px) {
+    .menu {
+      top: 60px;
+    }
   }
   
   .menu li {
@@ -281,10 +319,27 @@ label {
     font-size: 16px;
     color: #000;
   }
+  /* 下拉選單效果 */
+  .menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: .5s; /* 動畫秒數 */
+  }
 
   input:checked ~ .menu {
     min-height: 1000px;
   }
+  
+   /* .menu-dropdown-icon:before {
+     content: "\f489";
+     font-family: "Ionicons";
+     display: none;
+     cursor: pointer;
+     float: right;
+     padding: 1.5em 2em;
+     background: #fff;
+     color: #000;
+   } */
   
   .expand {
     float: right;
@@ -296,28 +351,29 @@ label {
   }
   
   .menu-dropdown-icon:before {
-      display: block;
+    display: block;
   }
   
 }
+ 
 
   /* banner */
   .banner {
-      margin-top: 90px;
-      background-image: url(../templates/images/banner.jpg);
-      background-position: center;
-      width: 100%;
-      height: 544px;
-      position: relative;
+    min-height: 800px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
+
 
   @media screen and (max-width: 760px) {
     .banner {
       margin-top: 60px;
-  }
+      min-height: 400px;
+    }
   }
 
-  .banner > h2 {
+  .banner-title {
     font-weight: 300;
     font-size: 48px;
     line-height: 64px;
@@ -326,10 +382,11 @@ label {
     top: 50%;
     right: 85px;
     transform: translate(0, -50%);
+    
   }
 
   @media screen and (max-width: 950px) {
-    .banner > h2 {
+    .banner-title {
       font-size: 36px;
       line-height: 40px;
       letter-spacing: 0.5em;
@@ -337,9 +394,8 @@ label {
     }
   }
 
-
   @media screen and (max-width: 760px) {
-    .banner > h2 {
+    .banner-title {
       font-size: 24px;
       line-height: 48px;
       letter-spacing: 0.1em;
@@ -348,26 +404,34 @@ label {
       text-align: right;
     }
   }
+
+  .owl-zindex {
+    z-index: -1;
+  }
   
   /* 查詢區 */
+  #example-row {
+    display: none;
+  }
+
   .searchArea {
       position: relative;
       width: 100%;
-      
+      min-height: 600px;
   }
 
   .search {
     width: 70%;
     background: #FFFFFF;
     box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.15);
-    /* position: absolute;
-    top: -20%;
+    position: absolute;
+    top: -10%;
     left: 50%;
-    transform: translate(-50% ,-25%); */
-    
+    transform: translate(-50% ,-25%);
+    text-align: center;
   }
 
-  .material-icons {
+  .search-icon {
       color: #58B2DC;
       vertical-align: middle;
       height: 30px;
@@ -384,43 +448,192 @@ label {
   }
 
   .gobleStyle {
-    
-    padding: 16px;
     background: #FFFFFF;
     border: 1.5px solid #58B2DC;
     box-sizing: border-box;
     color: #5C5C5C;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+    
   }
-
-  /* .search select {
-      width: 20%;
-  }
-
-  .search input {
-      width: 50%;
-  } */
 
   .search > ul {
       padding-right: 40px;
       padding-left: 40px;
       width: 100%;
+      text-align: center;
   } 
 
-  .search label {
+  .search li{
     display: inline-block;
   }
   
   .smallCol {
-    width: 300px;
+    height: 60px;
+    width: 30%;
   }
 
   .largeCol {
-    width: 700px;
+    height: 60px;
+    width: 65%;
   }
   
+  .close {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0 ,-50%);
+    color:#5C5C5C;
+    cursor: pointer;
+  }
+
+  .wh100 {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+  }
+
+  .font-style {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .input-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* 按鈕區塊 radio */
+  .btn-add, .btnBox, .btnBox label{
+    padding: 16px 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    color: #3A8FB7;
+    background-color: #fff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .btn-add:hover, .btnBox label:hover {
+    background-color: #3A8FB7;
+    color: #fff;
+  }
+
+  .btnBox label:not(:last-child){
+    margin-right: 8px;
+  }
+
+  .btn-add {
+    margin-bottom: 0;
+    border: 1px solid #bbeaff;
+  }
+
+  .b{
+    position: relative;
+  }
+
+  .b input{
+    display: none
+  }
+
+  .b span{
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid #bbeaff;
+  }
+
+ 
+  .b input:checked + span{
+    border: 1.5px solid #3A8FB7;
+  }
+
+
+  /* 查詢按鈕 */
+  .search-box {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+
+  .search-button {
+    padding: 16px 104px;
+    border: 1px solid #bbeaff;
+    color: #3A8FB7;
+    background-color: #fff;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .search-button:hover {
+    background-color: #3A8FB7;
+    color: #fff;
+  }
+  
+  .search-button a {
+    display: block;
+  }
+
+  /* 查詢區手機板 */
+  @media screen and (max-width: 760px) {
+
+    .searchArea {
+      min-height: 500px;
+    }
+
+    .search {
+      width: 85%;
+    }
+
+    .search-icon {
+      color: #58B2DC;
+      vertical-align: middle;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    .title {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 32px;
+      margin: 48px 0 32px 0;
+      text-align: center;
+    }
+
+    .search > ul {
+      padding-right: 24px;
+      padding-left: 24px;
+      width: 100%;
+      text-align: center;
+    } 
+
+    .font-style {
+      font-size: 14px;
+    }
+
+    .btnBox button, .btn-add {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    .btnBox button:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    .search-button {
+      padding: 8px 80px;
+      font-size: 14px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
 
   /* footer */
   footer {
@@ -485,102 +698,148 @@ label {
     }
   }
 
-  /* 輪播 */
-  /*common-css*/
-* {
-  padding: 0;
-  margin: 0;
-}
-h1 {
-  margin-bottom: 20px;
-  text-align: center;
-}
+  /* search 頁面 */
 
-/*slider-bg-setup*/
-.slider-items {
-  position: relative;
-/*   slider-height */
-  height: 500px;
-  -webkit-background-size: 100% 100%;
-  background-size: 100% 100%;
-  background-position: 0 0;
+  /* banner 區塊 */
+.search-banner {
+  background-image: url(../templates/images/banner.jpg);
+  background-position: center;
   background-repeat: no-repeat;
-}
-/* you can use background imgae in internal css */
-.bg-img-1 {
-  background-image: url(https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350);
-} 
-.bg-img-2 {
-  background-image: url(https://images.freeimages.com/images/small-previews/b8d/irish-landscape-1393571.jpg);
-}
-.bg-img-3 {
-  background-image: url(https://images.pexels.com/photos/348097/pexels-photo-348097.jpeg?auto=compress&cs=tinysrgb&h=350);
+  background-size: cover;
+  width: 100%;
+  height: 544px;
+  margin-top: 90px;
 }
 
-/*slider-style*/
-.active-slider {
-  position: relative;
+@media screen and (max-width: 760px) {
+  .search-banner {
+    height: 304px;
+  }
 }
-.sigle-item {
-  position: absolute;
-  color: #fff;
-  text-align: center;
+ 
+/* 查詢區塊 */
+.search-page {
+  width: 80%;
+  /* text-align: center; */
+  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
+  margin: 80px auto 80px auto;
+
+}
+
+/* Table Base */
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table { 
   width: 100%;
-  top: 50%;
-  text-transform: uppercase;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  margin-bottom: 20px;
 }
-/*over-lay-for-slider*/
-.slider-items:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.table th,
+.table td {
+  font-weight: normal;
+  font-size: 14px;
+  padding: 8px 16px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+.table thead th {
+  background: #cacaca;
+  /* vertical-align: bottom; */
+  font-size: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}   
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+  background-color: #ebebeb;
+}    
+.table .t-small {
+  width: 10%;
+}
+.table .t-medium {
+  width: 25%;
+}
+.book-cover {
+  width: 140px;
+}
+.table .t-status {
+  font-weight: bold;
+  color: #0089A7;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+/* Small Sizes */
+@media (max-width: 617px) { 
+  .table-action thead {
+    display: none;
+  }
+  .table-action tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  .table-action td {
+    border: 0;
+  }
+  .table-action td:not(:first-child) {
+    display: block;
+  }
+
+  td.book {
+    width: 140px;
+  }
+}
+
+.book > img{
   width: 100%;
-  height: 100%;
-/* overlay-color */
-  background: -webkit-linear-gradient(#777, #000);
-  background: -o-linear-gradient(#777, #000);
-  background: linear-gradient(#777, #000);
-  opacity: .65
+  height: 124px;
 }
-/*slider-reade-more-button*/
-a.home-btn {
-border: 2px solid #fff;
-display: inline-block;
-padding: 10px 25px;
-margin-top: 30px;
-color: #fff;
-text-decoration: none;
-transition: linear .3s;
-}
-a.home-btn:hover, .owl-nav div:hover {
-  background-color: #000;
-}
-/*owl-nav*/
-.owl-nav div {
-/*     border: 2px solid #fff; */
-  color: #fff;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  z-index: 9;
-  top: 50%;
-  margin-top: -20px;
-  left: 10px;
-  line-height: 40px;
+
+/* 頁數 */
+.pagination {
+  list-style: none;
+  padding: 8px;
   text-align: center;
-  -webkit-transition: linear .3s;
-  -o-transition: linear .3s;
-  transition: linear .3s;
+  margin-bottom: 80px;
 }
-.owl-nav div.owl-next {
-  left: auto;
-  right: 10px;
+.pagination a, .pagination li {
+  border-radius: 0;
+  color: #212121;
+  display: inline-block;
+  margin: 0;
+  transition: .15s ease-in;
+  cursor: pointer;
+  text-decoration: none;
 }
-/* optional */
-.owl-nav h1 {
-  font-weight: 900;
+.pagination a:hover {
+  background: #0089A7;
+  color: #fff;
+}
+.pagination .pagination-number,
+.pagination .pagination-arrow i {
+  vertical-align: middle;
+}
+.pagination .pagination-number {
+  font-family: sans-serif;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  width: 32px;
+  padding: 4px 0;
+}
+.pagination .pagination-number.current-number {
+  background: #0089A7;
+  color: #fff;
+}
+.pagination .pagination-arrow i {
+  font-size: 24px;
+  padding: 4px;
 }

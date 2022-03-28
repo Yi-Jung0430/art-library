@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,20 @@
 
     <!-- css reset -->
     <link rel="stylesheet" href="../templates/reset.css">
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- end google fonts -->
     
     <!-- material design icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- 輪播 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css">
+    
+    <!-- 輪播owlcarousel -->
+    <link rel="stylesheet" href="../templates/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../templates/owlcarousel/assets/owl.theme.default.min.css">    
     <!-- custom style -->
     <link rel="stylesheet" href="../templates/art.css">
+
+    <!-- ico -->
+    <link rel="icon" href="../templates/images/logo-01.ico" type="image/x-icon">
     
     <title>臺灣美術圖書館服務平台</title>
 </head> 
@@ -26,7 +29,6 @@
     <!-- 導航欄開始 -->
     <header>
         <div class="header">
-            
             <div class="logo">
                 <h1>
                     <a href="index.html">臺灣美術圖書館服務平台</a>
@@ -47,13 +49,23 @@
                 <li><a href="">服務項目</a></li>
                 <li><a href="">聯絡我們</a></li>
             </ul>
+        </div>
+    </header>
+    <!-- 導航欄結束 -->
 
-            <!-- 手機板選單 開始-->
+    <!-- 手機板導航 開始 -->
+    <header>
+        <div class="header-sm">
+            <div class="logo-sm">
+                <h1>
+                    <a href="index.html">臺灣美術圖書館服務平台</a>
+                </h1>
+            </div>
             <nav class="menuArea">
                 <label for="switch">
-                <span class="material-icons">
-                    reorder
-                </span>
+                    <span class="material-icons bar">
+                        reorder
+                    </span>
                 </label><!--漢堡按鈕圖示-->
                 <input type="checkbox" id="switch"><!--選單開關-->
                 <ul class="menu"><!--選單內容-->
@@ -77,82 +89,151 @@
                     <li><a href="##">聯絡我們</a></li>
                 </ul>
             </nav> 
-            <!-- 手機板選單 結束 -->
         </div>
     </header>
-    <!-- 導航欄結束 -->
-
-    
+    <!-- 手機板導航 結束 -->
 
     <!-- bannner star -->
-    <div class="banner">
-        <h2>臺灣美術圖書館服務平台</h2>
+    <div class="relative">
+        <h2 class="banner-title">臺灣美術圖書館服務平台</h2>
+        <div class="owl-carousel owl-theme owl-zindex">
+            <div class="item">
+                <div class="banner" style="background-image: url(../templates/images/banner.jpg);"></div>
+            </div>
+            <div class="item">
+                <div class="banner" style="background-image: url(../templates/images/banner-2.jpg);"></div>
+            </div>
+            <div class="item">
+                <div class="banner" style="background-image: url(../templates/images/banner-3.jpg);"></div>
+            </div>
+        </div>
     </div>
     <!-- banner end-->
 
-    <!-- 輪播 開始 -->
-    <section class="hearo-area">
-		<!-- slider-area -->
-		<div class="slider-wrapper">
-			<div class="active-slider owl-carousel">
-				<div class="slider-items bg-img-1">
-					<div class="sigle-item">
-						<h1>slider 1</h1>
-					</div>
-				</div>
-				<div class="slider-items bg-img-2">
-					<div class="sigle-item">
-						<h1>slider 2</h1>
-					</div>
-				</div>
-				<div class="slider-items bg-img-3">
-					<div class="sigle-item">
-						<h1>slider 3</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- slider-area-ends -->
-	</section>
-
-    <!-- 輪播 結束 -->
-
-    <!-- 查詢區開始 -->
-    <div class="searchArea">
-        <div class="search">
-            <div class="title">
-                <span class="material-icons">
-                    search
-                </span>
-                查詢區</div>
-            <ul>
-                <li>
-                    <label>
-                        <select class="gobleStyle smallCol">
-                          <option>書名</option>
-                          <option>作者</option>
-                          <option>索書號</option>
-                          <option>出版地</option>
-                          <option>出版者</option>
+    <!-- 查詢form開始 -->
+    <form action="" method="post">
+        <div class="searchArea">
+            <div class="search" id="search">
+                <div class="title">
+                    <span class="material-icons search-icon">
+                        search
+                    </span>
+                    查詢區
+                </div>
+                <!-- 新增欄位模板，預設是 display none -->
+                <ul id="example-row">
+                    <div class="btnBox">
+                        <label class="b"><input name="a" type="radio" checked>AND<span></span></label>
+                        <label class="b"><input name="a" type="radio">OR<span></span></label>
+                        <label class="b"><input name="a" type="radio">NOT<span></span></label>
+                    </div>
+                    <li class="gobleStyle smallCol">
+                        <label for="valueTwo ">
+                        </label>
+                        <select id="valueTwo" class="wh100 font-style">
+                            <option>書名</option>
+                            <option>作者</option>
+                            <option>索書號</option>
+                            <option>出版地</option>
+                            <option>出版者</option>
                         </select>
-                    </label>
-                    <label for="valueOne"></label>
-                    <input type="text" id="valueOne" name="valueOne" class="gobleStyle largeCol">
-                    <div class="btnBox"><button></button><button></button><button></button></div>
-                </li>
-                <li>
-                    <input type="text"><input type="text">
-                    <div class="btnBox"><button></button><button></button><button></button></div>
-                </li>
-                <li>
-                    <input type="text"><input type="text">
-                    <div class="btnBox"><button></button><button></button><button></button></div>
-                </li>
-            </ul>
-            <button>查詢</button>
-            
+                    </li>
+                    <li class="relative gobleStyle largeCol">
+                        <label for="valueOne"></label>
+                        <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
+                        <span class="material-icons-outlined material-icons close">
+                            close
+                        </span>
+                    </li>
+                </ul>
+                <!-- 查詢區塊一 -->
+                <ul>
+                    <li class="gobleStyle smallCol">
+                        <label for="valueTwo ">
+                        </label>
+                        <select id="valueTwo" class="wh100 font-style">
+                            <option>書名</option>
+                            <option>作者</option>
+                            <option>索書號</option>
+                            <option>出版地</option>
+                            <option>出版者</option>
+                        </select>
+                    </li>
+                    <li class="relative gobleStyle largeCol">
+                        <label for="valueOne"></label>
+                        <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
+                        <span class="material-icons-outlined material-icons close">
+                            close
+                        </span>
+                    </li>
+                    
+                </ul>
+                <!-- 查詢區塊二 -->
+                <ul>
+                    <div class="btnBox">
+                        <label class="b"><input name="a" type="radio" checked>AND<span></span></label>
+                        <label class="b"><input name="a" type="radio">OR<span></span></label>
+                        <label class="b"><input name="a" type="radio">NOT<span></span></label>
+                    </div>
+                    
+                    <li class="gobleStyle smallCol">
+                        <label for="valueTwo ">
+                        </label>
+                        <select id="valueTwo" class="wh100 font-style">
+                            <option>書名</option>
+                            <option>作者</option>
+                            <option>索書號</option>
+                            <option>出版地</option>
+                            <option>出版者</option>
+                        </select>
+                    </li>
+                    <li class="relative gobleStyle largeCol">
+                        <label for="valueOne"></label>
+                        <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
+                        <span class="material-icons-outlined material-icons close">
+                            close
+                        </span>
+                    </li>
+                </ul>
+                <!-- 查詢區塊三 -->
+                <ul>
+                    <div class="btnBox">
+                        <label class="b"><input name="a" type="radio" checked>AND<span></span></label>
+                        <label class="b"><input name="a" type="radio">OR<span></span></label>
+                        <label class="b"><input name="a" type="radio">NOT<span></span></label>
+                    </div>
+                    <li class="gobleStyle smallCol">
+                        <label for="valueTwo">
+                        </label>
+                        <select id="valueTwo" class="wh100 font-style">
+                            <option>書名</option>
+                            <option>作者</option>
+                            <option>索書號</option>
+                            <option>出版地</option>
+                            <option>出版者</option>
+                        </select>
+                    </li>
+                    <li class="relative gobleStyle largeCol">
+                        <label for="valueOne"></label>
+                        <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
+                        <span class="material-icons-outlined material-icons close">
+                            close
+                        </span>
+                    </li>
+                </ul>
+                <div>
+                    <button class="btn-add" id="addList">
+                        <span class="material-icons">
+                            add
+                        </span>
+                    </button>
+                </div>
+                <div class="search-box">
+                    <a href="search.html" class="search-button">查詢</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
     <!-- 查詢區結束 -->
     <!-- footer star -->
     <footer>
@@ -173,34 +254,80 @@
     <!-- footer end -->
 
 
+    
 
-    <!-- jQ測試區 -->
-    <button onclick="myFunc()">Click Me</button>
-    <p>First Paragraph</p>
-    <p>Second Paragraph</p>
-    <p>Yet one more Paragraph</p>
-
-   
-
-
-    <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
-    <!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- material design icon -->
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <!-- jQury -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+    
+    <!-- owlcarousel -->
+    <script src="../templates/owlcarousel/owl.carousel.min.js"></script>
+
     <!-- customer -->
     <script type="text/javascript" src="../templates/art.js"></script>
     <script src="../templates/code.js"></script>
 
-       
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 
- 
+ <script>
+     /*global $ */
+    $(document).ready(function() {
+
+        "use strict";
+        // 手機板導航欄
+        $('.menuArea > ul > li:has( > ul)').addClass('menu-dropdown-icon');
+        //Checks if li has sub (ul) and adds class for toggle icon - just an UI
+
+        $('.menuArea > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+        //Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
+
+        $(".menuArea > ul > li").click(function() {
+            if ($(window).width() <= 943) {
+                $(this).children("ul").fadeToggle(250);
+            }
+        });
+        //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
+    
+        $(".menu-mobile").click(function(e) {
+            $(".menuArea > ul").toggleClass('show-on-mobile');
+            e.preventDefault();
+        }); 
+    //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
+
+    });
+
+
+    // 輪播
+    var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items:1,
+            loop:true,
+            // margin:10,
+            autoplay:true,
+            autoplayTimeout:4000,
+            autoplayHoverPause:true
+        });
+
+
+    // 點擊新增列表
+    $("#addList").click(function(){
+        $("#search").append(
+            ""
+        )
+    });
+
+    // $(":radio").click(function (){
+	// 	$("input[type='radio']").each(function(){
+	// 	if(this.checked){
+	// 		$(this).next().css('color','#649723');
+	// 	}else{
+	// 		$(this).next().css('color','#767676');
+	// 	}
+	// });
+
+        
+
+ </script>
     
 
 </body>
