@@ -529,10 +529,13 @@ label {
   }
 
   /* 查詢按鈕 */
+  .search-box {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+
   .search-button {
     padding: 16px 104px;
-    margin-top: 24px;
-    margin-bottom: 24px;
     border: 1px solid #3A8FB7;
     color: #3A8FB7;
     background-color: #fff;
@@ -541,8 +544,6 @@ label {
     font-size: 16px;
     cursor: pointer;
     text-align: center;
-    margin-top: 64px;
-    margin-bottom: 64px;
   }
 
   .search-button:hover {
@@ -550,6 +551,10 @@ label {
     color: #fff;
   }
   
+  .search-button a {
+    display: block;
+  }
+
   /* 查詢區手機板 */
   @media screen and (max-width: 760px) {
 
