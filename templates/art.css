@@ -362,17 +362,6 @@ label {
     background-repeat: no-repeat;
   }
 
-  .banner-1 {
-    background-image: url(../templates/images/banner.jpg);
-  }
-
-  .banner-2 {
-    background-image: url(../templates/images/banner-2.jpg);
-  }
-
-  .banner-3 {
-    background-image: url(../templates/images/banner-3.jpg);
-  }
 
   @media screen and (max-width: 760px) {
     .banner {
