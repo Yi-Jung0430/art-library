@@ -407,6 +407,10 @@ label {
   }
   
   /* 查詢區 */
+  #example-row {
+    display: none;
+  }
+
   .searchArea {
       position: relative;
       width: 100%;
