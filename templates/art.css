@@ -416,7 +416,7 @@ a {
 
   .searchArea {
       position: relative;
-      width: 100%;
+      /* width: 100%; */
       min-height: 600px;
   }
 
@@ -424,11 +424,18 @@ a {
     width: 70%;
     background: #FFFFFF;
     box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+
+  }
+
+  .absolute {
     position: absolute;
-    top: -10%;
-    left: 50%;
-    transform: translate(-50% ,-25%);
+    top: -40%;
+    left: 0;
+    right: 0;
+    
     text-align: center;
+    width: 100%;
   }
 
   .search-icon {
@@ -443,7 +450,7 @@ a {
     font-weight: 300;
     font-size: 24px;
     line-height: 28px;
-    margin: 64px 0 48px 0;
+    padding: 64px 0 48px 0;
     text-align: center;
   }
 
@@ -455,7 +462,7 @@ a {
     
   }
 
-  .search > ul {
+  .search ul {
       padding-right: 40px;
       padding-left: 40px;
       width: 100%;
@@ -526,7 +533,7 @@ a {
   }
 
   .btn-add {
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
     border: 1px solid #bbeaff;
   }
 
@@ -552,11 +559,12 @@ a {
     border: 1.5px solid #3A8FB7;
   }
 
+  
 
   /* 查詢按鈕 */
   .search-box {
-    margin-top: 64px;
-    margin-bottom: 64px;
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
   .search-button {
@@ -603,7 +611,7 @@ a {
       font-weight: 300;
       font-size: 16px;
       line-height: 32px;
-      margin: 48px 0 32px 0;
+      padding: 48px 0 32px 0;
       text-align: center;
     }
 
@@ -639,6 +647,8 @@ a {
   footer {
       background-color: #BDC0BA;
       padding: 48px 80px;
+      margin-top: 40px;
+      text-align: left;
   }
 
   /* .footerLogo {
