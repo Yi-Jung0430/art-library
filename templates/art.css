@@ -539,6 +539,7 @@ a {
 
   .b{
     position: relative;
+    display: inline-block;
   }
 
   .b input{
@@ -559,6 +560,15 @@ a {
     border: 1.5px solid #3A8FB7;
   }
 
+  @media screen and (max-width: 760px) {
+    .btnBox {
+      padding: 0px;
+       margin-top: 0px;
+    }
+    .btnBox label {
+      padding: 8px;
+    }
+  }
   
 
   /* 查詢按鈕 */
