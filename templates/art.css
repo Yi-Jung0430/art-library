@@ -486,7 +486,7 @@ a {
   .close {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: -30px;
     transform: translate(0 ,-50%);
     color:#5C5C5C;
     cursor: pointer;

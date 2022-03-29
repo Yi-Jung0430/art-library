@@ -121,7 +121,7 @@
                 </div>
                 <!-- 新增欄位模板，預設是 display none -->
                 <div id="example-row">
-                    <ul>
+                    <ul class="group-input">
                         <div class="btnBox">
                             <label class="b"><input name="d" type="radio" checked>AND<span></span></label>
                             <label class="b"><input name="d" type="radio">OR<span></span></label>
@@ -141,7 +141,7 @@
                         <li class="relative gobleStyle largeCol">
                             <label for="valueOne"></label>
                             <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
-                            <span class="material-icons-outlined material-icons close">
+                            <span class="material-icons-outlined material-icons close"  onclick="c(this)">
                                 close
                             </span>
                         </li>
@@ -165,9 +165,9 @@
                         <li class="relative gobleStyle largeCol">
                             <label for="valueOne"></label>
                             <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
-                            <span class="material-icons-outlined material-icons close">
+                            <!-- <span class="material-icons-outlined material-icons close">
                                 close
-                            </span>
+                            </span> -->
                         </li>
                         
                     </ul>
@@ -193,9 +193,9 @@
                         <li class="relative gobleStyle largeCol">
                             <label for="valueOne"></label>
                             <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
-                            <span class="material-icons-outlined material-icons close">
+                            <!-- <span class="material-icons-outlined material-icons close">
                                 close
-                            </span>
+                            </span> -->
                         </li>
                     </ul>
                     <!-- 查詢區塊三 -->
@@ -219,9 +219,9 @@
                         <li class="relative gobleStyle largeCol">
                             <label for="valueOne"></label>
                             <input type="text" id="valueTwo" name="valueOne"  class="wh100 input-padding  font-style">
-                            <span class="material-icons-outlined material-icons close">
+                            <!-- <span class="material-icons-outlined material-icons close">
                                 close
-                            </span>
+                            </span> -->
                         </li>
                     </ul>
                     <div class="add-start"> 
@@ -325,14 +325,10 @@
         $(".add-start").before(new_html);
     });
 
-    // load 後清空 input 的值
-    $("input").val("");
+    function c(arg){
+        $(arg).closest("ul").remove();
+    }
 
-    $(".colse").on("click", function(){
-        var inputValue = this.previousSibling();
-        inputValue.val('');
-        
-    });
         
 
  </script>
