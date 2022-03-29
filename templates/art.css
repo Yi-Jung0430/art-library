@@ -373,6 +373,10 @@ a {
     }
   }
 
+  .item {
+    position: relative;
+  }
+
   .banner-title {
     font-weight: 300;
     font-size: 48px;
@@ -384,10 +388,25 @@ a {
     transform: translate(0, -50%);
     
   }
+  .banner-txt {
+    position: absolute;
+    /* bottom: 200px;
+    border: 2px solid #f0f;
+    width: 100%; */
+    color: #000;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: 0.5em;
+    position: absolute;
+    top: 50%;
+    right: 85px;
+    transform: translate(0, -50%);
+    }
 
   @media screen and (max-width: 950px) {
-    .banner-title {
-      font-size: 36px;
+    .banner-txt {
+      font-size: 30px;
       line-height: 40px;
       letter-spacing: 0.5em;
       
@@ -395,8 +414,8 @@ a {
   }
 
   @media screen and (max-width: 760px) {
-    .banner-title {
-      font-size: 24px;
+    .banner-txt {
+      font-size: 20px;
       line-height: 48px;
       letter-spacing: 0.1em;
       right: 32px;
@@ -657,7 +676,7 @@ a {
   footer {
       background-color: #BDC0BA;
       padding: 48px 80px;
-      margin-top: 40px;
+      margin-top: 80px;
       text-align: left;
   }
 
