@@ -9,7 +9,6 @@
     <!-- css reset -->
     <link rel="stylesheet" href="../templates/reset.css">
     
-    <!-- end google fonts -->
     <!-- material design icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
@@ -278,7 +277,6 @@
 
     <!-- customer -->
     <script type="text/javascript" src="../templates/art.js"></script>
-    <script src="../templates/code.js"></script>
 
 
  <script>
@@ -325,6 +323,15 @@
     $(".btn-add").on('click', function(){
         var new_html = $("#example-row").html();
         $(".add-start").before(new_html);
+    });
+
+    // load 後清空 input 的值
+    $("input").val("");
+
+    $(".colse").on("click", function(){
+        var inputValue = this.previousSibling();
+        inputValue.val('');
+        
     });
         
 
