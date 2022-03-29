@@ -272,12 +272,20 @@
 
     // 點擊新增列表
     $(".btn-add").on('click', function(){
-        var new_html = $("#example-row").html();
-        $(".add-start").before(new_html);
+        if($("form ul").length < 5){
+            var new_html = $("#example-row").html();
+            $(".add-start").before(new_html);
+            //
+            
+        } else{
+            $(".btn-add").addClass("disable");
+        }
+  
     });
 
     function c(arg){
         $(arg).closest("ul").remove();
+        $(".btn-add").removeClass("disable");
     }
 
     function checkForm() {
