@@ -359,7 +359,7 @@ a {
 
   /* banner */
   .banner {
-    min-height: 800px;
+    height: 100vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

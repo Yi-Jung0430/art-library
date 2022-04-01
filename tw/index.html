@@ -266,13 +266,15 @@
             // margin:10,
             autoplay:true,
             autoplayTimeout:4000,
-            autoplayHoverPause:true
+            autoplayHoverPause:true,
+            dots:false
+
         });
 
 
     // 點擊新增列表
     $(".btn-add").on('click', function(){
-        if($("form ul").length < 5){
+        if($("form ul").length <= 4){
             var new_html = $("#example-row").html();
             $(".add-start").before(new_html);
             //
